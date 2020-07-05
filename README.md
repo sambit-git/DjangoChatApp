@@ -10,8 +10,9 @@ $ git clone https://github.com/sambit-git/DjangoChatApp.git
 $ pip install -r requirements.txt
 $ cd Chat\ Application
 $ cd chatapp
-$ python manage.py migrate
-$ python manage.py createsuperuser
+$ python3 manage.py makemigrations userprofile
+$ python3 manage.py migrate
+$ python3 manage.py createsuperuser
 ... Create the super user
 ```
 
@@ -40,28 +41,29 @@ $ python manage.py createsuperuser
     - **redis-server**
         ```
         $ redis-server
-        86750:C 08 Nov 08:17:21.431 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
-        86750:M 08 Nov 08:17:21.433 * Increased maximum number of open files to 10032 (it was originally set to 256).
+        5988:C 05 Jul 2020 23:04:24.879 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+        5988:C 05 Jul 2020 23:04:24.879 # Redis version=6.0.4, bits=64, commit=00000000, modified=0, pid=5988, just started
+        5988:C 05 Jul 2020 23:04:24.879 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
                         _._                                                  
-                   _.-``__ ''-._                                             
-              _.-``    `.  `_.  ''-._           Redis 3.2.5 (00000000/0) 64 bit
-          .-`` .-```.  ```\/    _.,_ ''-._                                   
-         (    '      ,       .-`  | `,    )     Running in standalone mode
-         |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
-         |    `-._   `._    /     _.-'    |     PID: 86750
-          `-._    `-._  `-./  _.-'    _.-'                                   
-         |`-._`-._    `-.__.-'    _.-'_.-'|                                  
-         |    `-._`-._        _.-'_.-'    |           http://redis.io        
-          `-._    `-._`-.__.-'_.-'    _.-'                                   
-         |`-._`-._    `-.__.-'    _.-'_.-'|                                  
-         |    `-._`-._        _.-'_.-'    |                                  
-          `-._    `-._`-.__.-'_.-'    _.-'                                   
-              `-._    `-.__.-'    _.-'                                       
-                  `-._        _.-'                                           
-                      `-.__.-'                                               
+                _.-``__ ''-._                                             
+            _.-``    `.  `_.  ''-._           Redis 6.0.4 (00000000/0) 64 bit
+        .-`` .-```.  ```\/    _.,_ ''-._                                   
+        (    '      ,       .-`  | `,    )     Running in standalone mode
+        |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+        |    `-._   `._    /     _.-'    |     PID: 5988
+        `-._    `-._  `-./  _.-'    _.-'                                   
+        |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+        |    `-._`-._        _.-'_.-'    |           http://redis.io        
+        `-._    `-._`-.__.-'_.-'    _.-'                                   
+        |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+        |    `-._`-._        _.-'_.-'    |                                  
+        `-._    `-._`-.__.-'_.-'    _.-'                                   
+            `-._    `-.__.-'    _.-'                                       
+                `-._        _.-'                                           
+                    `-.__.-'                                               
 
-        86750:M 08 Nov 08:17:21.434 # Server started, Redis version 3.2.5
-        86750:M 08 Nov 08:17:21.434 * The server is now ready to accept connections on port 6379
+        5988:M 05 Jul 2020 23:04:24.885 # Server initialized
+        5988:M 05 Jul 2020 23:04:24.885 * Ready to accept connections
 
         ```
         **Close Redis** with `control` + `c` to quit

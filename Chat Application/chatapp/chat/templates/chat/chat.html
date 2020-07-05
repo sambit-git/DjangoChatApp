@@ -1,0 +1,101 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'chat/styles/chat.css' %}">
+<link rel="stylesheet" href="{% static 'chat/styles/chat_desktop.css' %}">
+<script>
+    var myPhoto = "{{ me.userprofile.image.url }}"
+    var myUsername = "{{ me.username }}"
+    var otherUsername = "{{ other_user }}"
+    var otherUserPhoto = "{{ other_user.userprofile.image.url }}"
+</script>
+{% endblock %}
+{% block content %}
+    <div class="chat-wrapper">
+        <div id="chat-window">
+            <div class="sidebar left" id="left">
+                <div class="my-info">
+                    <div class="photo">
+                        <img src="{{ me.userprofile.image.url }}">
+                    </div>
+                    <div class="info">
+                        {{ me.username|title }}
+                        {{ status }}
+                    </div>
+                </div>
+                <div class="searchbar">
+                    <input type="search" class="search" placeholder="Search or start new chat">
+                </div>
+                <div class="other-users mt-1">
+                    {% for user in users %}
+                        <a class="user_link" href="{% url 'chat:chat' user.username %}">
+                            <div class="user">
+                                <div class="photo {% if user.userprofile.status == True %}online{% else %}offline{% endif %}">
+                                    <img src="{{ user.userprofile.image.url }}" >
+                                </div>
+                                <div class="info">
+                                    <p class="username mt-2" >{{user.username|title}} <br>
+                                    <span class="status">{% if user.userprofile.status == True %}online{% else %}Last Active: {{ user.userprofile.lastActive|timesince }}{% endif %}</span></p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="sidebar right">
+                <div class="user-info">
+                    <div class="photo {% if other_user.userprofile.status == True %}online{% else %}offline{% endif %}">
+                        <img src="{{ other_user.userprofile.image.url }}" >
+                    </div>
+                    <div class="info ml-3">
+                        {{ other_user.username|title }} <br>
+                        <span class="status">{% if other_user.userprofile.status == True %}online{% else %}Last Active: {{ other_user.userprofile.lastActive|timesince }}{% endif %}</span></p>
+                    </div>
+                    <div class="options"></div>
+                </div>
+                <div class="chat-space" id="chat-space">
+                    {% for chat in object.chatmessage_set.all %}
+                        {% if chat.user == me %}
+                            <div class="sent">
+                                <div class="text">{{ chat.message }}</div>
+                                <div class="photo">
+                                    <img src="{{ me.userprofile.image.url }}" >
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="received">
+                                <div class="photo">
+                                    <img src="{{ other_user.userprofile.image.url }}" >
+                                </div>
+                                <div class="text">{{ chat.message }}</div>
+                            </div>
+                        {% endif %}
+    
+                    {% endfor %}
+                </div>
+                <div class="chat-form">
+                    <div class="txt-box">
+                        <form method="POST" id="msg-form">
+                            {% csrf_token %}
+                            <!-- <input type="text" name="msg" id="msg" placeholder="Type a message..." > -->
+                            {{ form }}
+                            <button type="submit" id="send-button">></button>
+                        </form>
+                    </div>
+                    <!-- <div class="attachment">
+                        <img src="{% static 'chat/images/paperclip-solid.svg' %}" height="40" width="40" >
+                    </div>
+                    <div class="send-button">
+                        <img src="{% static 'chat/images/paper-plane-regular.svg' %}" height="40" width="40" >
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'chat/scripts/chat.js' %}"></script>
+{% endblock %}

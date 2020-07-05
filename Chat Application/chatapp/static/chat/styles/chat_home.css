@@ -1,0 +1,16 @@
+.right{
+    background-image: radial-gradient(#6cd4ca, #4d88b8);
+    align-items: center;
+    justify-content: center;
+}
+
+.right p{
+    text-shadow: 1px 1px 10px #4d88b8;
+    font-size: large;
+    color: #fff;
+}
+
+.right img{
+    border-radius: 100%;
+    box-shadow: 1px 1px 30px #4d88b8;
+}

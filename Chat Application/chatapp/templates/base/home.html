@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <script>
+            window.location = "{% url 'chat:home' %}"
+        </script>
+    {% else %}
+        {% include 'snippets/form.html' with form=form form_name=form_name msg=msg %}
+    {% endif %}
+{% endblock %}

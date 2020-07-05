@@ -1,0 +1,250 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom,  #019688, #019688 20%, #DBDBD3 20%, #FFFFFF 90%);
+    background-repeat: no-repeat;
+}
+
+.chat-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    color: #333;
+    text-decoration: none;
+}
+
+#chat-window{
+    height: 85vh;
+    max-height: 85vh;
+    width: 70vw;
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+.left,.right{
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.my-info{
+    background-color: #EDEDED;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 10px;
+}
+
+.my-info .photo{
+    height: 50px;
+    width: 50px;
+    margin: 0px 5px;
+}
+
+.photo img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+/* .photo{
+    border-radius: 100%;
+    overflow: hidden;
+} */
+.searchbar{
+    padding: 10px;
+    background-color: #F7F7F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search{
+    border: none;
+    padding: 5px 5px 5px 20px;
+    border-radius: 100px;
+    width: 90%;
+}
+.search:focus{
+    outline: none;
+}
+input[placeholder]::placeholder{
+    font-weight: 300;
+    font-size: smaller;
+}
+.form-search:focus{
+    outline: none;
+    border-bottom: 1px solid #999;
+    transition: 0.5s;
+    padding: 10px;
+}
+
+.other-users{
+    height: 100%;
+    overflow: auto;
+}
+
+.user{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding: 0;
+}
+
+.user:hover{
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+}
+
+.user .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    border-bottom: 1px solid #ccc;
+}
+
+.user .info .username{
+    font-size: unset;
+    font-weight: 300;
+}
+.status{
+    font-size: small;
+    font-weight: 200;
+}
+
+.online{
+    padding: 1px;
+    border: 3px solid rgb(0, 187, 0);
+    border-radius: 100%;
+}
+.offline{
+    padding: 1px;
+    border: 3px solid rgb(187, 187, 187);
+    border-radius: 100%;
+}
+
+.user-info{
+    background-color: #EDEDED;
+    display: flex;
+    padding: 10px;
+    /* border-bottom: 1px solid #ccc; */
+}
+
+.user-info .photo{
+    height: 50px;
+    width: 50px;
+}
+.user .photo{
+    margin: 5px 0px 0px 10px;
+    height: 60px;
+    width: 60px;
+}
+
+.user-info .info{
+    flex: 5;
+}
+
+.user-info .options{
+    flex: 2;
+}
+
+.chat-space{
+    display: flex;
+    /* background-color: #f8f9fa; */
+    background-image: url('/static/chat/images/background.png');
+    background-size: cover;
+    flex-direction: column;
+    flex: 11;
+    padding: 5px;
+    overflow: scroll;
+}
+
+.received .photo,.sent .photo{
+    height: 30px;
+    width: 30px;
+}
+
+.received,.sent{
+    display: flex;
+    margin: 7px 0px 0px 7px;
+}
+
+.received{
+    align-self: flex-start;
+}
+
+.sent{
+    align-self: flex-end;
+}
+
+.chat-form{
+    bottom: 0;
+    position: absolute;
+    width: 70%;
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.txt-box{
+    width: 100%;
+}
+
+#msg-form{
+    display: flex;
+    align-items: center;
+}
+
+#msg{
+    border: none;
+    padding: 5px 5px 5px 30px;
+    border-radius: 100px;
+    width: 90%;
+}
+
+#send-button{
+    margin-left: 4px;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    border: none;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.4);
+    color: #fff;
+    font-weight: 800;
+    background-color: rgb(0, 187, 0);
+}
+
+#msg:focus{
+    outline: none;
+}
+
+.sent, .received{
+    max-width: 80%;
+}
+
+.sent .text{
+    background-color: #fff;
+    margin-right: 15px;
+}
+
+.received .text{
+    background-color: #DCF8C6;
+    margin-left: 15px;
+}
+
+.text{
+    max-width: 100%;
+    word-wrap: break-word;
+    padding: 10px 20px;
+    border-radius: 10px;
+}

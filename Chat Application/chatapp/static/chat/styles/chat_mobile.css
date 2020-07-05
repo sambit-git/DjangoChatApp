@@ -1,0 +1,23 @@
+@media(max-width:720px){
+    #chat-window{
+        left: 0;
+        top: 0;
+        width: 100vw;
+        position: relative;
+        display: block;
+    }
+    .right{
+        visibility: hidden;
+    }
+}
+
+@media(max-width: 950px){
+    #chat-window{
+        left: 0;
+        top: 0;
+        width: 100vw;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

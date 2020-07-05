@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'userprofile/styles/updateprofile.css' %}">
+{% endblock %}
+
+{% block content %}
+<p class="h4 text-center">Update Profile</p>
+    <section>
+        <p class="h5 alert-info rounded p-2 mb-2 ">Note: Picture uploaded here will be Converted to Grey-scale and resize to 300x300 pixels.</p>
+        <div class="picture mb-2">
+            <img src="{{ request.user.userprofile.image.url }}" class="rounded-circle border border-dark" >
+        </div>
+        <div class="form mt-2">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit" class="btn btn-outline-success">Submit</button>
+            </form>
+        </div>
+        <a class="btn btn-block btn-outline-info" href="{% url 'home' %}">Start Chit-Chat</a>
+    </section>
+{% endblock %}

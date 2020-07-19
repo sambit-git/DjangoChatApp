@@ -11,9 +11,11 @@ $ pip install -r requirements.txt
 $ cd Chat\ Application
 $ cd chatapp
 $ python3 manage.py makemigrations userprofile
+$ python3 manage.py makemigrations chat
 $ python3 manage.py migrate
 $ python3 manage.py createsuperuser
 ... Create the super user
+$ python3 manage.py runserver
 ```
 
 
